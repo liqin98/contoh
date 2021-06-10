@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#links" class="md-skip">
+        <a href="#installation" class="md-skip">
           Skip to content
         </a>
       
@@ -210,7 +210,7 @@
   
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
-        WEB MINING
+        Material
       </a>
     </li>
   
@@ -253,8 +253,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    LINKS
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
@@ -274,103 +274,10 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      <label class="md-nav__link" for="__nav_3">
-        minggu 3
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="minggu 3" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          minggu 3
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
     <li class="md-nav__item">
-      <a href="../hosting-and-deployment/combinations.md" class="md-nav__link">
-        latihan 1
+      <a href="../Preprocessing-Data/" class="md-nav__link">
+        Preprocessing Data
       </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      <label class="md-nav__link" for="__nav_4">
-        Extensions
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Extensions" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Extensions
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../extensions/mathjax/" class="md-nav__link">
-        MathJax
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../extensions/code-hilite/" class="md-nav__link">
-        Code Hilite
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../extensions/footnote/" class="md-nav__link">
-        Footnote
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -383,8 +290,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../license/" class="md-nav__link">
-        License
+      <a href="../TF-IDF/" class="md-nav__link">
+        TF-IDF Data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modeling-Data/" class="md-nav__link">
+        Modeling Data
       </a>
     </li>
   
@@ -414,8 +336,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    LINKS
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
@@ -439,16 +361,128 @@
                 
                   <h1>Crawling Data</h1>
                 
-                <h3 id="links">LINKS<a class="headerlink" href="#links" title="Permanent link">&para;</a></h3>
-<p>Markdown supports two style of links: <em>inline</em> and <em>reference</em>.</p>
-<p>In both styles, the link text is delimited by [square brackets].</p>
-<p>To create an inline link, use a set of regular parentheses immediately after the link text’s closing square bracket. Inside the parentheses, put the URL where you want the link to point, along with an <em>optional</em> title for the link, surrounded in quotes. For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">This</span> <span class="n">is</span> <span class="p">[</span><span class="n">an</span> <span class="n">example</span><span class="p">](</span><span class="nl">http</span><span class="p">:</span><span class="c1">//example.com/ &quot;Title&quot;) inline link.</span>
+                <p><strong>Crawling Data Menggunakan Python</strong></p>
+<p>Untuk crawling data twitter bisa menggunakan library <a href="https://docs.tweepy.org/en/latest/getting_started.html">Tweepy</a>. Untuk menginstall Tweepy nya ada 3 cara :</p>
+<h4 id="installation"><strong>Installation</strong><a class="headerlink" href="#installation" title="Permanent link">&para;</a></h4>
+<p><strong>Menggunakan pip</strong>  <sup>direkomendasikan</sup></p>
+<p>Tweepy dapat diinstall dengan menggunakan <code>pip</code> :</p>
+<p><code>pip install tweepy</code></p>
+<p><strong>Dengan clone repository github</strong></p>
+<p>Tweepy dapat diinstal dengan menggunakan clone repository dari github :</p>
+<p>```git clone https://github.com/tweepy/tweepy.git
+git clone https://github.com/tweepy/tweepy.git
+cd tweepy
+pip install</p>
+<div class="codehilite"><pre><span></span><code><span class="o">***</span><span class="n">Dengan</span> <span class="n">Install</span> <span class="n">langsung</span> <span class="n">dari</span> <span class="n">repository</span> <span class="n">github</span><span class="o">***</span>
 
-<span class="p">[</span><span class="n">This</span> <span class="n">link</span><span class="p">](</span><span class="nl">http</span><span class="p">:</span><span class="c1">//example.net/) has no title attribute.</span>
+<span class="n">Tweepy</span> <span class="n">dapat</span> <span class="n">juga</span> <span class="n">diinstal</span> <span class="n">tanpa</span> <span class="n">harus</span> <span class="n">meng</span><span class="o">-</span><span class="n">clone</span> <span class="n">repository</span> <span class="n">dari</span> <span class="n">github</span> <span class="n">dengan</span> <span class="n">cara</span> <span class="p">:</span>
+
+<span class="err">```</span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tweepy</span><span class="o">/</span><span class="n">tweepy</span><span class="o">.</span><span class="n">git</span><span class="err">```</span>
+
+
+
+<span class="c1">#### **BeautifulSoup**</span>
+
+<span class="n">BeautifulSoup</span> <span class="n">merupakan</span> <span class="n">library</span> <span class="n">python</span> <span class="n">digunakan</span> <span class="n">untuk</span> <span class="n">melakukan</span> <span class="n">web</span> <span class="n">scraping</span> <span class="n">dalam</span> <span class="n">package</span> <span class="n">bs4</span><span class="o">.</span>
+
+<span class="n">untuk</span> <span class="n">install</span> <span class="n">bs4</span> <span class="n">gunakan</span> <span class="n">pip</span> <span class="n">atau</span> <span class="n">conda</span>
+
+<span class="err">```</span><span class="n">pip</span> <span class="n">install</span> <span class="n">bs4</span><span class="err">```</span>
+
+<span class="n">Setelah</span> <span class="n">sukses</span> <span class="n">terinstall</span> <span class="n">cara</span> <span class="n">memanggil</span> <span class="n">library</span> <span class="n">BeautifulSoup</span> <span class="n">adalah</span> <span class="n">sebagai</span> <span class="n">berikut</span>
+
+<span class="err">```</span><span class="kn">from</span> <span class="nn">bs4</span>  <span class="kn">import</span> <span class="n">BeautifulSoup</span><span class="err">```</span>
+
+<span class="o">**</span><span class="n">contoh</span>  <span class="n">penggunaan</span><span class="o">**</span> <span class="o">&lt;</span><span class="n">sup</span><span class="o">&gt;</span><span class="n">BeautifulSoup</span><span class="o">&lt;/</span><span class="n">sup</span><span class="o">&gt;</span>
+
+<span class="err">```</span><span class="n">dokumen</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">dokumen = &#39;&#39;&#39;</span>
+<span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Tutorial</span> <span class="n">BeautifulSoup</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">p</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;judul&quot;</span><span class="o">&gt;</span><span class="n">Judul</span> <span class="n">Dokumen</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">p</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;paragraf&quot;</span><span class="o">&gt;</span><span class="n">Ini</span> <span class="n">adalah</span> <span class="n">contoh</span> <span class="n">paragraf</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://ngoding.com&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;url&quot;</span><span class="o">&gt;</span><span class="n">Ngoding</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
 </code></pre></div>
 
-<p>Will produce:</p>
+<p>Kemudian gunakan library BeautifulSoup untuk mengekstrak kode HTML</p>
+<p>```from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
+html_soup = BeautifulSoup(dokumen, 'html.parser')</p>
+<p>print(html_soup)</p>
+<div class="codehilite"><pre><span></span><code>**Fungsi find()**
+
+Untuk mengambil potongan kode HTML atau konten dari HTML gunakan fungsi <span class="nt">&lt;i&gt;</span>find()<span class="nt">&lt;/i&gt;</span>
+
+Fungsi `find()` akan mengambil data berdasarkan tag HTML. Jika terdapat tag HTML yang sama lebih dari satu maka yang diambil adalah tag yang paling atas di halaman HTML
+
+```judul = html_soup.find(&#39;p&#39;)
+judul = html_soup.find(&#39;p&#39;)
+print(judul)
+</code></pre></div>
+
+<p>Jika ingin mengambil nilai dari tag <code>&lt;p&gt;</code> dengan nama class tertentu maka tambahkan parameter <em>class_</em> di dalam fungsi <i>find()</i></p>
+<p>Misal kita tambahkan parameter <em>class  judul</em> dan <em>paragraf</em>  untuk mengambil nilai dari tag<code>&lt;p&gt;</code> dengan kedua <em>class</em> tersebut</p>
+<div class="codehilite"><pre><span></span><code>judul = html_soup.find(&#39;p&#39;, class_=&#39;judul&#39;)
+paragraf = html_soup.find(&#39;p&#39;, class_=&#39;paragraf&#39;)
+print(judul)
+print(paragraf)
+</code></pre></div>
+
+<p>untuk mengambil hanya konten dari HTML (tanpa kode HTMLnya) tambahkan sintaks <code>text</code> diakhir statement</p>
+<p>```judul_saja = html_soup.find('p', class_='judul').text
+judul_saja = html_soup.find('p', class_='judul').text
+print(judul_saja)</p>
+<div class="codehilite"><pre><span></span><code>**Fungsi find_all()**
+
+Fungsi `find()` hanya dapat mengekstrak satu ouput sedangkan biasanya banyak tag HTML yang sama yang ingin diambil semuanya.
+
+Untuk mengambil konten HTML dengan tag yang sama gunakan fungsi `find_all()`
+
+```all_paragraf = html_soup.find_all(&#39;p&#39;)
+all_paragraf = html_soup.find_all(&#39;p&#39;)
+print(all_paragraf)
+</code></pre></div>
+
+<p>Biasanya fungsi <code>find_all()</code> digunakan untuk mengambil data yang berbentuk <em>table</em> atau <em>list</em></p>
+<p>Sebenarnya masih banyak fungsi lain dari library BeautifulSoup tetapi fungsi <code>find()</code> dan <code>find_all()</code> paling banyak digunakan untuk ekstrak data dari website.</p>
+<p>Berikut kode lengkap dari case BeautifulSoup diatas</p>
+<p>```from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup</p>
+<p>dokumen = '''
+<html>
+<head>
+    <title>Tutorial BeautifulSoup</title>
+</head></p>
+<body>
+    <p class="judul">Judul Dokumen</p>
+
+    <p class="paragraf">Ini adalah contoh paragraf</p>
+
+    <a href="https://ngoding.com" class="url">Ngoding</a>
+</body>
+
+<p></html>
+'''</p>
+<p>html_soup = BeautifulSoup(dokumen, 'html.parser')</p>
+<p>judul = html_soup.find('p', class_='judul')
+paragraf = html_soup.find('p', class_='paragraf')
+judul_saja = html_soup.find('p', class_='judul').text
+print(judul)
+print(paragraf)
+print(judul_saja)</p>
+<p>all_paragraf = html_soup.find_all('p')
+print(all_paragraf)
+```</p>
                 
               
               
@@ -469,13 +503,13 @@
       
       
         
-        <a href="../extensions/mathjax/" class="md-footer__link md-footer__link--next" aria-label="Next: MathJax" rel="next">
+        <a href="../Preprocessing-Data/" class="md-footer__link md-footer__link--next" aria-label="Next: Preprocessing Data" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              MathJax
+              Preprocessing Data
             </div>
           </div>
           <div class="md-footer__button md-icon">
