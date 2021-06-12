@@ -388,11 +388,11 @@ Inti utama dari algoritma ini adalah melakukan perhitungan nilai TF dan nilai ID
 </tbody>
 </table>
 <p>Contoh data awal adalah sebagai berikut:</p>
-<div class="codehilite"><pre><span></span><code>Dim daftarDokumen As New List(Of String)
-daftarDokumen.Add(&quot;Saya suka sama suami situ sebab suami situ suka senyum-senyum sama saya.&quot;)
-daftarDokumen.Add(&quot;Santapan kita setiap jam setengah satu siang satu soto sapi sama seratus tusuk sate sapi pula.&quot;)
-daftarDokumen.Add(&quot;Saya sebal sama situ sebab situ suka senyum-senyum sama suami saya sehingga suami saya suka senyum-senyum sendiri saja.&quot;)
-daftarDokumen.Add(&quot;Sempat-sempatnya semut-semut itu saling senyum-senyum dan salam-salaman sama semut-semut yang mau senyum-senyum dan salam-salaman sama semut-semut itu.&quot;)
+<div class="codehilite"><pre><span></span><code><span class="n">daftarDokumen</span> <span class="n">As</span> <span class="n">New</span> <span class="n">List</span><span class="p">(</span><span class="n">Of</span> <span class="n">String</span><span class="p">)</span>
+<span class="n">daftarDokumen</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;Saya suka sama suami situ sebab suami situ suka senyum-senyum sama saya.&quot;</span><span class="p">)</span>
+<span class="n">daftarDokumen</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;Santapan kita setiap jam setengah satu siang satu soto sapi sama seratus tusuk sate sapi pula.&quot;</span><span class="p">)</span>
+<span class="n">daftarDokumen</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;Saya sebal sama situ sebab situ suka senyum-senyum sama suami saya sehingga suami saya suka senyum-senyum sendiri saja.&quot;</span><span class="p">)</span>
+<span class="n">daftarDokumen</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;Sempat-sempatnya semut-semut itu saling senyum-senyum dan salam-salaman sama semut-semut yang mau senyum-senyum dan salam-salaman sama semut-semut itu.&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 <p>Dan query data yang digunakan adalah</p>
@@ -407,34 +407,34 @@ daftarDokumen.Add(&quot;Sempat-sempatnya semut-semut itu saling senyum-senyum da
    dan kemudian dilakukan proses penghilangan tanda baca
    Penjelasan lebih detail tentang fungsi ini dapat dilihat pada penjelasan skrip dibawah ini.</li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="k">For</span> <span class="nv">i</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="nv">To</span> <span class="nv">daftarDokumen</span>.<span class="nv">Count</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="nv">daftarDokumen</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">Tokenizing</span><span class="ss">(</span><span class="nv">daftarDokumen</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>.<span class="k">ToLower</span><span class="ss">)</span>
-<span class="k">Next</span>
+<div class="codehilite"><pre><span></span><code><span class="n">For</span> <span class="n">i</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">To</span> <span class="n">daftarDokumen</span><span class="o">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">daftarDokumen</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">Tokenizing</span><span class="p">(</span><span class="n">daftarDokumen</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">ToLower</span><span class="p">)</span>
+<span class="n">Next</span>
 
-<span class="nv">query</span> <span class="o">=</span> <span class="nv">Tokenizing</span><span class="ss">(</span><span class="nv">query</span>.<span class="k">ToLower</span><span class="ss">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">Tokenizing</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">ToLower</span><span class="p">)</span>
 </code></pre></div>
 
 <p>Gunakan fungsi ini untuk menghilangkan tanda baca
 Tanda baca yang diperhitungkan adalah:
 titik ,koma, titik koma, titik dua, hubung -, tanda tanya, tanda seru, kurung biasa (), kurung kotak [], kurung kurawal {}, tanda petik satu, tanda petik ganda, garis miring</p>
-<div class="codehilite"><pre><span></span><code><span class="nv">Public</span> <span class="nv">Function</span> <span class="nv">Tokenizing</span><span class="ss">(</span><span class="nv">ByVal</span> <span class="nv">input</span> <span class="nv">As</span> <span class="nv">String</span><span class="ss">)</span> <span class="nv">As</span> <span class="nv">String</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">.</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">,</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">:</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">-</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">?</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">!</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">(</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">)</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">[</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">]</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">{</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">}</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">&#39;</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;&quot;&quot;&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="nv">input</span> <span class="o">=</span> <span class="nv">input</span>.<span class="nv">Replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">/</span><span class="s2">&quot;</span>, <span class="s2">&quot;&quot;</span><span class="ss">)</span>
-    <span class="k">Return</span> <span class="nv">input</span>
-<span class="k">End</span> <span class="nv">Function</span>
+<div class="codehilite"><pre><span></span><code><span class="n">Public</span> <span class="n">Function</span> <span class="n">Tokenizing</span><span class="p">(</span><span class="n">ByVal</span> <span class="nb">input</span> <span class="n">As</span> <span class="n">String</span><span class="p">)</span> <span class="n">As</span> <span class="n">String</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;!&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;{&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;}&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;&quot;, &quot;&quot;)</span>
+<span class="s2">    input = input.Replace(&quot;/&quot;, &quot;&quot;)</span>
+<span class="s2">    Return input</span>
+<span class="s2">End Function</span>
 </code></pre></div>
 
 <ol>
@@ -442,70 +442,70 @@ titik ,koma, titik koma, titik dua, hubung -, tanda tanya, tanda seru, kurung bi
    Sebagai contoh jika dokumen berisi kalimat “hati hati ya”
    Maka jumlah kata “hati” adalah 2, dan jumlah kata “ya” adalah 1</li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="nv">jumlahKataPerDokumen</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">New</span> <span class="nv">List</span><span class="ss">(</span><span class="nv">Of</span> <span class="nv">JumlahKata</span><span class="ss">)</span>
-<span class="nv">Dim</span> <span class="nv">daftarKata</span> <span class="nv">As</span> <span class="nv">String</span><span class="ss">()</span> <span class="o">=</span> <span class="nv">daftarDokumen</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>.<span class="nv">Split</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="ss">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">jumlahKataPerDokumen</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">New</span> <span class="n">List</span><span class="p">(</span><span class="n">Of</span> <span class="n">JumlahKata</span><span class="p">)</span>
+<span class="n">Dim</span> <span class="n">daftarKata</span> <span class="n">As</span> <span class="n">String</span><span class="p">()</span> <span class="o">=</span> <span class="n">daftarDokumen</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">Split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
-<span class="nv">Dim</span> <span class="nv">cekKata</span> <span class="nv">As</span> <span class="nv">New</span> <span class="nv">List</span><span class="ss">(</span><span class="nv">Of</span> <span class="nv">String</span><span class="ss">)</span>
-<span class="k">For</span> <span class="nv">j</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="nv">To</span> <span class="nv">daftarKata</span>.<span class="nv">Count</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">If</span> <span class="nv">Not</span> <span class="nv">cekKata</span>.<span class="nv">Contains</span><span class="ss">(</span><span class="nv">daftarKata</span><span class="ss">(</span><span class="nv">j</span><span class="ss">))</span> <span class="k">Then</span>
-        <span class="nv">Dim</span> <span class="nv">jumlah</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">For</span> <span class="nv">k</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="nv">To</span> <span class="nv">daftarKata</span>.<span class="nv">Count</span> <span class="o">-</span> <span class="mi">1</span>
-            <span class="k">If</span> <span class="nv">daftarKata</span><span class="ss">(</span><span class="nv">j</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">daftarKata</span><span class="ss">(</span><span class="nv">k</span><span class="ss">)</span> <span class="k">Then</span> <span class="nv">jumlah</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">Next</span>
+<span class="n">Dim</span> <span class="n">cekKata</span> <span class="n">As</span> <span class="n">New</span> <span class="n">List</span><span class="p">(</span><span class="n">Of</span> <span class="n">String</span><span class="p">)</span>
+<span class="n">For</span> <span class="n">j</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">To</span> <span class="n">daftarKata</span><span class="o">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">If</span> <span class="n">Not</span> <span class="n">cekKata</span><span class="o">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">daftarKata</span><span class="p">(</span><span class="n">j</span><span class="p">))</span> <span class="n">Then</span>
+        <span class="n">Dim</span> <span class="n">jumlah</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">For</span> <span class="n">k</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">To</span> <span class="n">daftarKata</span><span class="o">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">If</span> <span class="n">daftarKata</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">daftarKata</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="n">Then</span> <span class="n">jumlah</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">Next</span>
 
-        <span class="nv">jumlahKataPerDokumen</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>.<span class="nv">Add</span><span class="ss">(</span><span class="nv">New</span> <span class="nv">JumlahKata</span><span class="ss">(</span><span class="nv">daftarKata</span><span class="ss">(</span><span class="nv">j</span><span class="ss">)</span>, <span class="nv">jumlah</span><span class="ss">))</span>
-        <span class="nv">cekKata</span>.<span class="nv">Add</span><span class="ss">(</span><span class="nv">daftarKata</span><span class="ss">(</span><span class="nv">j</span><span class="ss">))</span>
-    <span class="k">End</span> <span class="k">If</span>
-<span class="k">Next</span>
+        <span class="n">jumlahKataPerDokumen</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">New</span> <span class="n">JumlahKata</span><span class="p">(</span><span class="n">daftarKata</span><span class="p">(</span><span class="n">j</span><span class="p">),</span> <span class="n">jumlah</span><span class="p">))</span>
+        <span class="n">cekKata</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">daftarKata</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+    <span class="n">End</span> <span class="n">If</span>
+<span class="n">Next</span>
 </code></pre></div>
 
 <ol>
 <li>Hitung nilai TF dengan rumus
    TF = jumlah frekuensi kata terpilih / jumlah kata</li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="k">For</span> <span class="nv">j</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="nv">To</span> <span class="nv">daftarKataQuery</span>.<span class="nv">Count</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="nv">Dim</span> <span class="nv">frekuensi</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="codehilite"><pre><span></span><code><span class="n">For</span> <span class="n">j</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">To</span> <span class="n">daftarKataQuery</span><span class="o">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">Dim</span> <span class="n">frekuensi</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">For</span> <span class="nv">k</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="nv">To</span> <span class="nv">jumlahKataPerDokumen</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>.<span class="nv">Count</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">If</span> <span class="nv">daftarKataQuery</span><span class="ss">(</span><span class="nv">j</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">jumlahKataPerDokumen</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)(</span><span class="nv">k</span><span class="ss">)</span>.<span class="nv">kata</span> <span class="k">Then</span>
-            <span class="nv">frekuensi</span> <span class="o">=</span> <span class="nv">jumlahKataPerDokumen</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)(</span><span class="nv">k</span><span class="ss">)</span>.<span class="nv">jumlah</span>
-            <span class="k">Exit</span> <span class="k">For</span>
-        <span class="k">End</span> <span class="k">If</span>
-    <span class="k">Next</span>
+    <span class="n">For</span> <span class="n">k</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">To</span> <span class="n">jumlahKataPerDokumen</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">If</span> <span class="n">daftarKataQuery</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">jumlahKataPerDokumen</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">kata</span> <span class="n">Then</span>
+            <span class="n">frekuensi</span> <span class="o">=</span> <span class="n">jumlahKataPerDokumen</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">jumlah</span>
+            <span class="n">Exit</span> <span class="n">For</span>
+        <span class="n">End</span> <span class="n">If</span>
+    <span class="n">Next</span>
 
-    <span class="nv">TF</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>.<span class="nv">Add</span><span class="ss">(</span><span class="nv">frekuensi</span> <span class="o">/</span> <span class="nv">daftarKata</span>.<span class="nv">Length</span><span class="ss">)</span>
-<span class="k">Next</span>
+    <span class="n">TF</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">frekuensi</span> <span class="o">/</span> <span class="n">daftarKata</span><span class="o">.</span><span class="n">Length</span><span class="p">)</span>
+<span class="n">Next</span>
 </code></pre></div>
 
 <ol>
 <li>Hitung IDF dengan rumus
    IDF = log(jumlah dokumen / jumlah frekuensi kata terpilih)</li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="nv">Dim</span> <span class="nv">frekuensiDokumen</span><span class="ss">(</span><span class="nv">daftarKataQuery</span>.<span class="nv">Count</span> <span class="o">-</span> <span class="mi">1</span><span class="ss">)</span> <span class="nv">As</span> <span class="nv">Integer</span>
-<span class="k">For</span> <span class="nv">i</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="nv">To</span> <span class="nv">daftarDokumen</span>.<span class="nv">Count</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">For</span> <span class="nv">j</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="nv">To</span> <span class="nv">daftarKataQuery</span>.<span class="nv">Count</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">If</span> <span class="nv">TF</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)(</span><span class="nv">j</span><span class="ss">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">Then</span> <span class="nv">frekuensiDokumen</span><span class="ss">(</span><span class="nv">j</span><span class="ss">)</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">Next</span>
-<span class="k">Next</span>
+<div class="codehilite"><pre><span></span><code><span class="n">Dim</span> <span class="n">frekuensiDokumen</span><span class="p">(</span><span class="n">daftarKataQuery</span><span class="o">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="n">As</span> <span class="n">Integer</span>
+<span class="n">For</span> <span class="n">i</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">To</span> <span class="n">daftarDokumen</span><span class="o">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">For</span> <span class="n">j</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">To</span> <span class="n">daftarKataQuery</span><span class="o">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">If</span> <span class="n">TF</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">j</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">Then</span> <span class="n">frekuensiDokumen</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">Next</span>
+<span class="n">Next</span>
 
-<span class="k">For</span> <span class="nv">j</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="nv">To</span> <span class="nv">daftarKataQuery</span>.<span class="nv">Count</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="nv">IDF</span><span class="ss">(</span><span class="nv">j</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">Math</span>.<span class="nv">Log10</span><span class="ss">(</span><span class="nv">daftarDokumen</span>.<span class="nv">Count</span> <span class="o">/</span> <span class="nv">frekuensiDokumen</span><span class="ss">(</span><span class="nv">j</span><span class="ss">))</span>
-<span class="k">Next</span>
+<span class="n">For</span> <span class="n">j</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">To</span> <span class="n">daftarKataQuery</span><span class="o">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">IDF</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="n">Log10</span><span class="p">(</span><span class="n">daftarDokumen</span><span class="o">.</span><span class="n">Count</span> <span class="o">/</span> <span class="n">frekuensiDokumen</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+<span class="n">Next</span>
 </code></pre></div>
 
 <ol>
 <li>Nilai jawaban dilakukan dengan cara melakukan perkalian antara nilai TF dan nilai IDF
    Tampilkan hasil jawaban akhir pada layar</li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="k">For</span> <span class="nv">i</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="nv">To</span> <span class="nv">daftarDokumen</span>.<span class="nv">Count</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">For</span> <span class="nv">j</span> <span class="nv">As</span> <span class="nv">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="nv">To</span> <span class="nv">daftarKataQuery</span>.<span class="nv">Count</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="nv">Console</span>.<span class="nv">WriteLine</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Nilai TF-IDF untuk kata </span><span class="s2">&quot;</span> <span class="o">&amp;</span> <span class="nv">daftarKataQuery</span><span class="ss">(</span><span class="nv">j</span><span class="ss">)</span>.<span class="nv">PadRight</span><span class="ss">(</span><span class="mi">8</span><span class="ss">)</span> <span class="o">&amp;</span> <span class="s2">&quot;</span><span class="s"> terhadap dokumen </span><span class="s2">&quot;</span> <span class="o">&amp;</span> <span class="ss">(</span><span class="nv">i</span> <span class="o">+</span> <span class="mi">1</span><span class="ss">)</span> <span class="o">&amp;</span> <span class="s2">&quot;</span><span class="s"> adalah </span><span class="s2">&quot;</span> <span class="o">&amp;</span> <span class="ss">(</span><span class="nv">TF</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)(</span><span class="nv">j</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">IDF</span><span class="ss">(</span><span class="nv">j</span><span class="ss">))</span>.<span class="nv">ToString</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">F4</span><span class="s2">&quot;</span><span class="ss">))</span>
-    <span class="k">Next</span>
-<span class="k">Next</span>
+<div class="codehilite"><pre><span></span><code><span class="n">For</span> <span class="n">i</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">To</span> <span class="n">daftarDokumen</span><span class="o">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">For</span> <span class="n">j</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">To</span> <span class="n">daftarKataQuery</span><span class="o">.</span><span class="n">Count</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s2">&quot;Nilai TF-IDF untuk kata &quot;</span> <span class="o">&amp;</span> <span class="n">daftarKataQuery</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">PadRight</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s2">&quot; terhadap dokumen &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="s2">&quot; adalah &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">TF</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">IDF</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="o">.</span><span class="n">ToString</span><span class="p">(</span><span class="s2">&quot;F4&quot;</span><span class="p">))</span>
+    <span class="n">Next</span>
+<span class="n">Next</span>
 </code></pre></div>
 
 <p><strong>Hasil akhir adalah:</strong></p>
-<p><img alt="cmd" src="C:\Users\Liqin_\Documents\cmd.png" /></p>
+<p><img alt="" src="E:\UAS\mkdocs-material-boilerplate-master\docs_sample\cmd.png" /></p>
                 
               
               
